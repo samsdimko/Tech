@@ -1,0 +1,9 @@
+C:\Users\Pavel\source\repos\Samsonov_ProjectForTech\Samsonov_ProjectForTech\bin\Debug\Samsonov_ProjectForTech.exe.config
+C:\Users\Pavel\source\repos\Samsonov_ProjectForTech\Samsonov_ProjectForTech\bin\Debug\Samsonov_ProjectForTech.exe
+C:\Users\Pavel\source\repos\Samsonov_ProjectForTech\Samsonov_ProjectForTech\bin\Debug\Samsonov_ProjectForTech.pdb
+C:\Users\Pavel\source\repos\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.csprojAssemblyReference.cache
+C:\Users\Pavel\source\repos\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.MainPage.resources
+C:\Users\Pavel\source\repos\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.Properties.Resources.resources
+C:\Users\Pavel\source\repos\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.csproj.GenerateResource.cache
+C:\Users\Pavel\source\repos\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.exe
+C:\Users\Pavel\source\repos\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.pdb
