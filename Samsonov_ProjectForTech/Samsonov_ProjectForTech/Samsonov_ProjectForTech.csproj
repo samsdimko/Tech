@@ -59,11 +59,11 @@
     <Compile Include="Sing up.Designer.cs">
       <DependentUpon>Sing up.cs</DependentUpon>
     </Compile>
-    <Compile Include="Registration.cs">
+    <Compile Include="Sign in.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registration.Designer.cs">
-      <DependentUpon>Registration.cs</DependentUpon>
+    <Compile Include="Sign in.Designer.cs">
+      <DependentUpon>Sign in.cs</DependentUpon>
     </Compile>
     <Compile Include="MainPage%28Signed%29.cs">
       <SubType>Form</SubType>
@@ -91,8 +91,8 @@
     <EmbeddedResource Include="Sing up.resx">
       <DependentUpon>Sing up.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Registration.resx">
-      <DependentUpon>Registration.cs</DependentUpon>
+    <EmbeddedResource Include="Sign in.resx">
+      <DependentUpon>Sign in.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GenealogicalTree.resx">
       <DependentUpon>GenealogicalTree.cs</DependentUpon>
