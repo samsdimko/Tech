@@ -30,15 +30,17 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -58,6 +60,8 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.textBox2);
+            this.splitContainer1.Panel2.Controls.Add(this.button3);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Panel2.Controls.Add(this.textBox1);
             this.splitContainer1.Panel2.Controls.Add(this.button2);
@@ -77,14 +81,31 @@
             this.listBox1.Size = new System.Drawing.Size(222, 264);
             this.listBox1.TabIndex = 3;
             // 
-            // button1
+            // label2
             // 
-            this.button1.Location = new System.Drawing.Point(347, 433);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(288, 95);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Sign in/up";
-            this.button1.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(103, 178);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Search";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(42, 194);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(161, 20);
+            this.textBox1.TabIndex = 5;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(42, 92);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(161, 29);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Check!";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -112,6 +133,15 @@
             this.comboBox1.Size = new System.Drawing.Size(235, 21);
             this.comboBox1.TabIndex = 3;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(347, 433);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(288, 95);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Sign in/up";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -129,31 +159,23 @@
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
             // 
-            // button2
+            // button3
             // 
-            this.button2.Location = new System.Drawing.Point(42, 92);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(161, 29);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Check!";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button3.Location = new System.Drawing.Point(42, 220);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(161, 22);
+            this.button3.TabIndex = 7;
+            this.button3.Text = "Search";
+            this.button3.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // textBox2
             // 
-            this.textBox1.Location = new System.Drawing.Point(42, 206);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(161, 20);
-            this.textBox1.TabIndex = 5;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(103, 190);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Search";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.textBox2.Location = new System.Drawing.Point(42, 127);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(161, 41);
+            this.textBox2.TabIndex = 10;
             // 
             // MainPage
             // 
@@ -190,5 +212,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

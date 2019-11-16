@@ -30,16 +30,17 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -59,6 +60,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.button3);
             this.splitContainer1.Panel2.Controls.Add(this.textBox2);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Panel2.Controls.Add(this.button1);
@@ -77,6 +79,40 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(222, 264);
             this.listBox1.TabIndex = 3;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(47, 127);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(161, 41);
+            this.textBox2.TabIndex = 9;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(108, 177);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Search";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(47, 92);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(161, 29);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Check!";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(47, 193);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(161, 20);
+            this.textBox1.TabIndex = 7;
             // 
             // label1
             // 
@@ -103,15 +139,6 @@
             this.comboBox1.Size = new System.Drawing.Size(235, 21);
             this.comboBox1.TabIndex = 3;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(47, 92);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(161, 29);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Check!";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -128,22 +155,6 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(108, 200);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Search";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(47, 216);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(161, 20);
-            this.textBox1.TabIndex = 7;
-            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(375, 478);
@@ -153,14 +164,14 @@
             this.button2.Text = "Add new person";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // button3
             // 
-            this.textBox2.Location = new System.Drawing.Point(47, 127);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(161, 41);
-            this.textBox2.TabIndex = 9;
+            this.button3.Location = new System.Drawing.Point(47, 219);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(161, 22);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "Search";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -198,5 +209,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button3;
     }
 }
