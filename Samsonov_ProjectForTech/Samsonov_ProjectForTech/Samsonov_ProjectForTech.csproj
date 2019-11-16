@@ -47,25 +47,61 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adding.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Adding.Designer.cs">
+      <DependentUpon>Adding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sing up.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sing up.Designer.cs">
+      <DependentUpon>Sing up.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registration.Designer.cs">
+      <DependentUpon>Registration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage%28Signed%29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainPage%28Signed%29.Designer.cs">
+      <DependentUpon>MainPage%28Signed%29.cs</DependentUpon>
+    </Compile>
     <Compile Include="GenealogicalTree.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GenealogicalTree.Designer.cs">
       <DependentUpon>GenealogicalTree.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.cs">
+    <Compile Include="MainPage%28Unsigned%29.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainPage.Designer.cs">
-      <DependentUpon>MainPage.cs</DependentUpon>
+    <Compile Include="MainPage%28Unsigned%29.Designer.cs">
+      <DependentUpon>MainPage%28Unsigned%29.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Adding.resx">
+      <DependentUpon>Adding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sing up.resx">
+      <DependentUpon>Sing up.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registration.resx">
+      <DependentUpon>Registration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GenealogicalTree.resx">
       <DependentUpon>GenealogicalTree.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainPage.resx">
-      <DependentUpon>MainPage.cs</DependentUpon>
+    <EmbeddedResource Include="MainPage%28Signed%29.resx">
+      <DependentUpon>MainPage%28Signed%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainPage%28Unsigned%29.resx">
+      <DependentUpon>MainPage%28Unsigned%29.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
