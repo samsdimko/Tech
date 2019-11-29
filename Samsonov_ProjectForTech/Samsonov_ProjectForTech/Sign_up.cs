@@ -10,16 +10,18 @@ using System.Windows.Forms;
 
 namespace Samsonov_ProjectForTech
 {
-    public partial class GenealogicalTree : Form
+    public partial class Sign_up : Form
     {
-        public GenealogicalTree(int id)
+        public Sign_up()
         {
             InitializeComponent();
         }
 
-        private void GenealogicalTree_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            MainPageSigned mainPageSigned = new MainPageSigned();
+            mainPageSigned.Show();
+            this.Close();
         }
     }
 }

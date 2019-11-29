@@ -47,9 +47,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 647);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 482);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1020, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(920, 22);
             this.statusStrip1.TabIndex = 4;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -63,7 +63,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1020, 669);
+            this.ClientSize = new System.Drawing.Size(920, 504);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.button1);
             this.Name = "GenealogicalTree";

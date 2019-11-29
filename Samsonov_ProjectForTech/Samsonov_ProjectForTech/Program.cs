@@ -16,7 +16,7 @@ namespace Samsonov_ProjectForTech
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainPage());
+            Application.Run(new MainPageUnsigned());
         }
     }
 }

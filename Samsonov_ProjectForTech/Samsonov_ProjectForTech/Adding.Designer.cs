@@ -107,6 +107,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(276, 20);
             this.textBox1.TabIndex = 9;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -143,11 +144,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(199, 157);
+            this.label4.Location = new System.Drawing.Point(158, 157);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(120, 13);
+            this.label4.Size = new System.Drawing.Size(162, 13);
             this.label4.TabIndex = 20;
-            this.label4.Text = "6. Is the date accurate?";
+            this.label4.Text = "6. Is the date accurate? (yes/no)";
             // 
             // textBox4
             // 
@@ -191,11 +192,12 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(199, 237);
+            this.label7.Location = new System.Drawing.Point(160, 237);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(120, 13);
+            this.label7.Size = new System.Drawing.Size(162, 13);
             this.label7.TabIndex = 26;
-            this.label7.Text = "9. Is the date accurate?";
+            this.label7.Text = "9. Is the date accurate? (yes/no)";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // textBox7
             // 
@@ -252,6 +254,7 @@
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(276, 20);
             this.textBox10.TabIndex = 31;
+            this.textBox10.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
             // 
             // label11
             // 
@@ -284,15 +287,16 @@
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(276, 20);
             this.textBox12.TabIndex = 27;
+            this.textBox12.TextChanged += new System.EventHandler(this.textBox12_TextChanged);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(253, 551);
+            this.label13.Location = new System.Drawing.Point(213, 551);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(67, 13);
+            this.label13.Size = new System.Drawing.Size(109, 13);
             this.label13.TabIndex = 50;
-            this.label13.Text = "21. Is it you?";
+            this.label13.Text = "21. Is it you? (yes/no)";
             // 
             // textBox13
             // 
@@ -438,6 +442,7 @@
             this.button1.TabIndex = 51;
             this.button1.Text = "Add!";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Adding
             // 

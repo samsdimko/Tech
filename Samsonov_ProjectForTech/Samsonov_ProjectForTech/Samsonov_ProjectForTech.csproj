@@ -47,29 +47,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accounts.cs" />
     <Compile Include="Adding.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Adding.Designer.cs">
       <DependentUpon>Adding.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sing up.cs">
+    <Compile Include="Graph.cs" />
+    <Compile Include="MainPageSigned.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sing up.Designer.cs">
-      <DependentUpon>Sing up.cs</DependentUpon>
+    <Compile Include="MainPageSigned.Designer.cs">
+      <DependentUpon>MainPageSigned.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sign in.cs">
+    <Compile Include="MainPageUnsigned.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sign in.Designer.cs">
-      <DependentUpon>Sign in.cs</DependentUpon>
+    <Compile Include="MainPageUnsigned.Designer.cs">
+      <DependentUpon>MainPageUnsigned.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainPage%28Signed%29.cs">
+    <Compile Include="Search.cs" />
+    <Compile Include="Person.cs" />
+    <Compile Include="Sign_in.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainPage%28Signed%29.Designer.cs">
-      <DependentUpon>MainPage%28Signed%29.cs</DependentUpon>
+    <Compile Include="Sign_in.Designer.cs">
+      <DependentUpon>Sign_in.cs</DependentUpon>
     </Compile>
     <Compile Include="GenealogicalTree.cs">
       <SubType>Form</SubType>
@@ -77,31 +81,28 @@
     <Compile Include="GenealogicalTree.Designer.cs">
       <DependentUpon>GenealogicalTree.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainPage%28Unsigned%29.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainPage%28Unsigned%29.Designer.cs">
-      <DependentUpon>MainPage%28Unsigned%29.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sign_up.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sign_up.Designer.cs">
+      <DependentUpon>Sign_up.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Adding.resx">
       <DependentUpon>Adding.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sing up.resx">
-      <DependentUpon>Sing up.cs</DependentUpon>
+    <EmbeddedResource Include="MainPageSigned.resx">
+      <DependentUpon>MainPageSigned.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sign in.resx">
-      <DependentUpon>Sign in.cs</DependentUpon>
+    <EmbeddedResource Include="MainPageUnsigned.resx">
+      <DependentUpon>MainPageUnsigned.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sign_in.resx">
+      <DependentUpon>Sign_in.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GenealogicalTree.resx">
       <DependentUpon>GenealogicalTree.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainPage%28Signed%29.resx">
-      <DependentUpon>MainPage%28Signed%29.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainPage%28Unsigned%29.resx">
-      <DependentUpon>MainPage%28Unsigned%29.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -112,6 +113,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Sign_up.resx">
+      <DependentUpon>Sign_up.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
