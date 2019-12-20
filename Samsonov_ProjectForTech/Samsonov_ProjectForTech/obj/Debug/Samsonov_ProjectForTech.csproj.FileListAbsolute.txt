@@ -9,17 +9,3 @@ C:\Users\Pavel\source\repos\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\
 C:\Users\Pavel\source\repos\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.pdb
 C:\Users\Pavel\source\repos\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.GenealogicalTree.resources
 C:\Users\Pavel\source\repos\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.Form1.resources
-D:\Tech-master\Samsonov_ProjectForTech\Samsonov_ProjectForTech\bin\Debug\Samsonov_ProjectForTech.exe.config
-D:\Tech-master\Samsonov_ProjectForTech\Samsonov_ProjectForTech\bin\Debug\Samsonov_ProjectForTech.exe
-D:\Tech-master\Samsonov_ProjectForTech\Samsonov_ProjectForTech\bin\Debug\Samsonov_ProjectForTech.pdb
-D:\Tech-master\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.csprojAssemblyReference.cache
-D:\Tech-master\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.Adding.resources
-D:\Tech-master\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.MainPageSigned.resources
-D:\Tech-master\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.MainPageUnsigned.resources
-D:\Tech-master\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.Sign_in.resources
-D:\Tech-master\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.GenealogicalTree.resources
-D:\Tech-master\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.Properties.Resources.resources
-D:\Tech-master\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.Sign_up.resources
-D:\Tech-master\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.csproj.GenerateResource.cache
-D:\Tech-master\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.exe
-D:\Tech-master\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.pdb
