@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace Samsonov_ProjectForTech
 {
-    class Dataset
+    static class Dataset
     {
         public static List<Person> PersonList = new List<Person>();
         public static int ID = 0;
@@ -31,6 +31,12 @@ namespace Samsonov_ProjectForTech
         public static int GetID()
         {
             return ID;
+        }
+
+        public static Person GetPersonByName(string name) 
+        {
+            var person = PersonList.FirstOrDefault(x => x.GetFullName().Contains(name));
+            return person;
         }
     }
 }

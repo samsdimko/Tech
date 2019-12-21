@@ -11,14 +11,15 @@ namespace Samsonov_ProjectForTech
         List<Person> personList = Dataset.GetPersonList();
         int ID;
         int count;
-        List<int> IDList = null;
-        List<int> RelationList = null;
-        int[][] GenerationNumber = new int[2][];
-        int[][] gr = new int[2][];
+        List<int> IDList = new List<int>();
+        List<int> RelationList = new List<int>();
+        List<List<int>> GenerationNumber = new List<List<int>>(2);
+        List<List<int>> gr = new List<List<int>>(2);
+        
         public Graph(int ID)
-        {
+        {            
             this.ID = ID;
-            IDList.Add(personList[this.ID].Getid());
+            IDList.Add(ID);
             RelationList.Add(0);
             this.count = 0;
             FindUp(this.ID);
@@ -29,7 +30,7 @@ namespace Samsonov_ProjectForTech
         private Graph(int ID, int count)
         {
             this.ID = ID;
-            IDList.Add(personList[this.ID].Getid());
+            IDList.Add(this.ID);
             RelationList.Add(count);
             this.count = count;
             FindUp(this.ID);
@@ -76,8 +77,8 @@ namespace Samsonov_ProjectForTech
         {
             for (int i = 0; i < this.IDList.Count; i++)
             {
-                this.gr[0].Append(IDList[i]);
-                this.gr[1].Append(RelationList[i]);
+                this.gr[0].Add(IDList[i]);
+                this.gr[1].Add(RelationList[i]);
             }
             for (int i = 0, k = RelationList.Max(); i < IDList.Count; i++)
             {
@@ -109,7 +110,7 @@ namespace Samsonov_ProjectForTech
             for (int i = 0; i < this.IDList.Count; i++)
             {
                 int t = i;
-                while (this.gr[1][i] == this.gr[1][t])
+                while (this.gr[1][i] == this.gr[1][t] && t < gr[1].Count)
                 {
                     t++;
                 }
@@ -129,11 +130,11 @@ namespace Samsonov_ProjectForTech
                 }
             }
         }        
-        public int[][] GetList()
+        public List<List<int>> GetList()
         {
             return this.gr;
         }
-        public int[][] GetGenerations()
+        public List<List<int>> GetGenerations()
         {
             return this.GenerationNumber;
         }

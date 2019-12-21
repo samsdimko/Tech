@@ -11,9 +11,9 @@ namespace Samsonov_ProjectForTech
         static List<string> Names = new List<string>();
         private static void GetList()
         {
-            for (int i = 0; i < Person.GetPersonList().Count; i++)
+            for (int i = 0; i < Dataset.GetPersonList().Count; i++)
             {
-                Names.Add(Person.GetPersonList()[i].GetName());
+                Names.Add(Dataset.GetPersonList()[i].GetFullName());
             }
         }
         public static List<string> SetList()

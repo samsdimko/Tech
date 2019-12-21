@@ -52,7 +52,21 @@ namespace Samsonov_ProjectForTech
 
         private void button3_Click(object sender, EventArgs e)
         {
+            var searchQuery = textBox1.Text;
 
+            int[] find = Dataset.PersonList.Where(x => x.GetFullName().Contains(searchQuery) ||
+                                                       x.GetAddress().Contains(searchQuery) ||
+                                                       x.GetPlaceOfBirth().Contains(searchQuery))
+                                                       .Select(x => x.GetId()).ToArray();
+            if (find == null)
+            {
+                MessageBox.Show("No such person");
+                textBox1.Text = "";
+            }
+            else
+            {
+                RunAndStrartTree runAndStrartTree = new RunAndStrartTree(find[0]);
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -73,7 +87,7 @@ namespace Samsonov_ProjectForTech
                 textBox3.Text = "";
                 textBox4.Text = "";
             }
-            else if (Search.CheckName(textBox3.Text) == false || Search.CheckName(textBox4.Text) == false)
+            else if (false)//TODO Check for correct names//Search.CheckName(textBox3.Text) == false || Search.CheckName(textBox4.Text) == false)
             {
                 MessageBox.Show("Incorrect name");
                 textBox3.Text = "";
@@ -81,18 +95,19 @@ namespace Samsonov_ProjectForTech
             }
             else
             {
-                int[] first = Search.SearchAll(textBox3.Text);
-                int[] second = Search.SearchAll(textBox4.Text);
-                if (first == null || second == null)
+                var firstPerson = Dataset.GetPersonByName(textBox3.Text);
+                var secondPerson = Dataset.GetPersonByName(textBox4.Text);
+                if (secondPerson == null || firstPerson == null)
                 {
                     MessageBox.Show("No such person");
                     textBox3.Text = "";
                     textBox4.Text = "";
+                    return;
                 }
-                else
-                {
-                    //textBox2.Text = graph(textBox3.Text, textBox4.Text);
-                }
+                int firstId = firstPerson.GetId();
+                int secondId = secondPerson.GetId();
+
+                //TODO Stuff with 2 persons
             }
             
         }

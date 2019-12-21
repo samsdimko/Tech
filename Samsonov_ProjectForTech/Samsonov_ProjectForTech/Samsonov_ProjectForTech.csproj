@@ -51,6 +51,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Accounts.cs" />
+    <Compile Include="Model\Dataset.cs" />
+    <Compile Include="Model\Person.cs" />
     <Compile Include="Model\Tree.cs" />
     <Compile Include="Presenter\RunAndStrartTree.cs" />
     <Compile Include="Presenter\TableMain.cs" />
@@ -72,6 +74,12 @@
     </Compile>
     <Compile Include="Viewer\MainPageUnsigned.Designer.cs">
       <DependentUpon>MainPageUnsigned.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Viewer\ShowTreeList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Viewer\ShowTreeList.Designer.cs">
+      <DependentUpon>ShowTreeList.cs</DependentUpon>
     </Compile>
     <Compile Include="Viewer\Sign_in.cs">
       <SubType>Form</SubType>
@@ -101,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Viewer\MainPageUnsigned.resx">
       <DependentUpon>MainPageUnsigned.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Viewer\ShowTreeList.resx">
+      <DependentUpon>ShowTreeList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Viewer\Sign_in.resx">
       <DependentUpon>Sign_in.cs</DependentUpon>
