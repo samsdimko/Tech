@@ -8,136 +8,213 @@ namespace Samsonov_ProjectForTech
 {
     public class Graph
     {
-        List<Person> personList = Dataset.GetPersonList();
-        int ID;
-        int count;
-        List<int> IDList = new List<int>();
-        List<int> RelationList = new List<int>();
-        List<List<int>> GenerationNumber = new List<List<int>>(2);
-        List<List<int>> gr = new List<List<int>>(2);
+        private List<Person> personList = Dataset.GetPersonList();
+        private int ID;
+        private int count;
+        private List<int> IDList = new List<int>();
+        private List<int> RelationList = new List<int>();
+        private List<List<int>> GenerationNumber = new List<List<int>>(2);
+        private List<List<int>> gr = new List<List<int>>(2);
+        private int[,] Floid;
         
         public Graph(int ID)
         {            
             this.ID = ID;
             IDList.Add(ID);
             RelationList.Add(0);
-            this.count = 0;
-            FindUp(this.ID);
-            FindDown(this.ID);
+            count = 0;
+            FindUp(this.ID, count);
+            FindDown(this.ID, count);            
             MakeArray();
             SortArray();
+            Floid = new int[gr[0].Count, gr[0].Count];
+            DoFloid();
         }
-        private Graph(int ID, int count)
+        private void FindUp(int id, int count)
         {
-            this.ID = ID;
-            IDList.Add(this.ID);
-            RelationList.Add(count);
-            this.count = count;
-            FindUp(this.ID);
-            FindDown(this.ID);
-        }
-        private void FindUp(int ID)
-        {
-            if (personList[ID].GetFatherID() != -1)
+            if (id < 0 || personList.Count <= id) {
+                return;
+            }
+            if (personList[id].GetFatherID() != -1)
             {
-                if (IDList.IndexOf(personList[ID].GetFatherID()) != -1)
+                if (IDList.IndexOf(personList[id].GetFatherID()) == -1)
                 {
-                    IDList.Add(personList[ID].GetFatherID());
-                    RelationList.Add(count);
-                    Graph graphUp = new Graph(personList[ID].GetFatherID(), count + 1);
+                    IDList.Add(personList[id].GetFatherID());
+                    RelationList.Add(count - 1);
+                    FindUp(personList[id].GetFatherID(), count - 1);
+                    FindDown(personList[id].GetFatherID(), count - 1);
                 }
             }
-            else if (personList[ID].GetMotherID() != -1)
+            if (personList[id].GetMotherID() != -1)
             {
-                if (IDList.IndexOf(personList[ID].GetMotherID()) != -1)
+                if (IDList.IndexOf(personList[id].GetMotherID()) == -1)
                 {
-                    IDList.Add(personList[ID].GetMotherID());
-                    RelationList.Add(count);
-                    Graph graphUp = new Graph(personList[ID].GetMotherID(), count + 1);
+                    IDList.Add(personList[id].GetMotherID());
+                    RelationList.Add(count - 1);
+                    FindUp(personList[id].GetMotherID(), count - 1);
+                    FindDown(personList[id].GetMotherID(), count - 1);
                 }
             }
         }
-        private void FindDown(int ID)
+        private void FindDown(int id, int count)
         {
-            int numberChild = personList[this.ID].GetChildList().Count;
-            if (numberChild != 0)
+            if (personList[id].GetChildList().Count != 0)
             {
-                for (int i = 0; i < numberChild; i++)
+                for (int i = 0; i < personList[id].GetChildList().Count; i++)
                 {
-                    if (IDList.IndexOf(personList[this.ID].GetChildList()[i]) != -1)
+                    if (IDList.IndexOf(personList[id].GetChildList()[i]) == -1)
                     {
-                        IDList.Add(personList[this.ID].GetChildList()[i]);
-                        RelationList.Add(count);
-                        Graph graphDown = new Graph(personList[this.ID].GetChildList()[i]);
+                        IDList.Add(personList[id].GetChildList()[i]);
+                        RelationList.Add(count + 1);
+                        FindUp(personList[id].GetChildList()[i], count + 1);
+                        FindDown(personList[id].GetChildList()[i], count + 1);
                     }
                 }
             }
         }
         private void MakeArray()
         {
-            for (int i = 0; i < this.IDList.Count; i++)
+            gr.Add(new List<int>());
+            gr.Add(new List<int>());
+            GenerationNumber.Add(new List<int>());
+            GenerationNumber.Add(new List<int>());
+            gr[0] = IDList;
+            gr[1] = RelationList;
+            for (int i = 0; i < gr[1].Count; i++) 
             {
-                this.gr[0].Add(IDList[i]);
-                this.gr[1].Add(RelationList[i]);
-            }
-            for (int i = 0, k = RelationList.Max(); i < IDList.Count; i++)
-            {
-                bool l = false;
-                for (int j = i; j < IDList.Count; j++)
+                int min = gr[1][i];
+                int index = i;
+                for (int j = i; j < gr[1].Count; j++)
                 {
-                    if (this.gr[1][j] == k)
+                    if (gr[1][j] < min)
                     {
-                        int change = this.gr[1][i];
-                        this.gr[1][i] = this.gr[1][j];
-                        this.gr[1][j] = change;
-                        change = gr[0][i];
-                        this.gr[0][i] = this.gr[0][j];
-                        this.gr[0][j] = change;
-                        l = true;
+                        min = gr[1][j];
+                        index = j;
+                    }
+                }
+                if (index != i)
+                {
+                    int change = gr[1][i];
+                    gr[1][i] = gr[1][index];
+                    gr[1][index] = change;
+                    change = gr[0][i];
+                    gr[0][i] = gr[0][index];
+                    gr[0][index] = change;
+                }
+            }
+            for (int i = 0; i < gr[0].Count; i++)
+            {
+                int k = gr[1][0];
+                for (int j = i; j < gr[0].Count; j++)
+                {
+                    k++;
+                    if (gr[1][i] != gr[1][j])
+                    {
+                        GenerationNumber[0].Add(gr[1][i]);
+                        GenerationNumber[1].Add(j);
+                        i = j;
                         break;
                     }
                 }
-                if (l == false)
-                {
-                    this.GenerationNumber[0].Append(k);
-                    this.GenerationNumber[1].Append(i+1);
-                    k--;
-                }
-            }            
+            }
+            GenerationNumber[0].Add(GenerationNumber[0][GenerationNumber.Count - 1] + 1);
+            GenerationNumber[1].Add(gr[0].Count);
+            for (int i = GenerationNumber[0].Count - 1; i > 0; i--)
+            {
+                GenerationNumber[1][i] -= GenerationNumber[1][i - 1];
+            }
         }
         private void SortArray()
         {
-            for (int i = 0; i < this.IDList.Count; i++)
+            for (int i = 0, k = 0; i < IDList.Count; i++)
             {
-                int t = i;
-                while (this.gr[1][i] == this.gr[1][t] && t < gr[1].Count)
+                int p = i + 1;
+                for (int j = p; j < i + GenerationNumber[1][k]; j++)
                 {
-                    t++;
-                }
-                for (int j = i + 1; j < t; j++) 
-                {
-                    if (personList[gr[0][i]].GetChildList()[0] == personList[gr[0][j]].GetChildList()[0] && personList[gr[0][i]].GetChildList() != null)
+                    if (personList[gr[0][i]].GetChildList().Count != 0 && personList[gr[0][j]].GetChildList().Count != 0)
                     {
-                        int change = this.gr[1][i];
-                        this.gr[1][i] = this.gr[1][j];
-                        this.gr[1][j] = change;
-                        change = this.gr[0][i];
-                        this.gr[0][i] = this.gr[0][j];
-                        this.gr[0][j] = change;
-                        i += 2;
-                        break;
+                        if (personList[gr[0][i]].GetChildList() == personList[gr[0][j]].GetChildList())
+                        {
+                            int change = gr[1][i + 1];
+                            gr[1][i + 1] = gr[1][j];
+                            gr[1][j] = change;
+                            change = gr[0][i + 1];
+                            gr[0][i + 1] = gr[0][j];
+                            gr[0][j] = change;
+                            i += 2;
+                        }
+                    }
+                    p = j;
+
+                }
+                k++;
+                i = p;
+            }
+        }        
+        private void DoFloid()
+        {
+            for(int i = 0; i < gr[0].Count; i++)
+            {
+                for (int j = i; j < gr[0].Count; j++)
+                {
+                    if(Dataset.GetPersonList()[gr[0][i]].GetFatherID() == gr[0][j] ||
+                       Dataset.GetPersonList()[gr[0][i]].GetMotherID() == gr[0][j] ||
+                       Dataset.GetPersonList()[gr[0][i]].GetChildList().IndexOf(gr[0][j]) != -1)
+                    {
+                        Floid[i, j] = Floid[j, i] = 1;
                     }
                 }
             }
-        }        
+            for (int i = 0; i < gr[0].Count; i++)
+            {
+                for (int j = i; j < gr[0].Count; j++)
+                {
+                    if (Floid[i, j] == 0)
+                    {
+                        Floid[i, j] = Floid[j, i] = 10000000;
+                    }
+                }
+            }
+            for (int i = 0; i < gr[0].Count; i++)
+            {
+                for (int j = 0; j < gr[0].Count; j++)
+                {
+                    for (int k = 0; k < gr[0].Count; k++)
+                    {
+                        if (Floid[i, j] > Floid[i, k] + Floid[k, j]) 
+                        {
+                            Floid[i, j] = Floid[i, k] + Floid[k, j];
+                        }
+                    }
+                }
+            }
+        }
+        public int[] Relation(int me, int it)
+        {
+            int[] result = new int[2];
+            int cas = gr[1][me] - gr[1][it];
+            result[0] = cas;
+            if (cas > 0)
+            {
+                result[1] = Floid[me, it] - cas;
+            }
+            else
+            {
+                result[1] = Floid[me, it] + cas;
+            }
+            return result;
+        }
         public List<List<int>> GetList()
         {
-            return this.gr;
+            return gr;
         }
         public List<List<int>> GetGenerations()
         {
-            return this.GenerationNumber;
+            return GenerationNumber;
         }
-        
+        public int GetMainId()
+        {
+            return ID;
+        }
     }
 }

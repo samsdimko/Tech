@@ -53,8 +53,14 @@
     <Compile Include="Model\Accounts.cs" />
     <Compile Include="Model\Dataset.cs" />
     <Compile Include="Model\Person.cs" />
+    <Compile Include="Model\RelationShip.cs" />
+    <Compile Include="Model\Search.cs" />
+    <Compile Include="Model\Table.cs" />
     <Compile Include="Model\Tree.cs" />
+    <Compile Include="Presenter\NewMan.cs" />
+    <Compile Include="Presenter\RelationCheck.cs" />
     <Compile Include="Presenter\RunAndStrartTree.cs" />
+    <Compile Include="Presenter\SearchPresenter.cs" />
     <Compile Include="Presenter\TableMain.cs" />
     <Compile Include="Viewer\Adding.cs">
       <SubType>Form</SubType>
@@ -63,6 +69,12 @@
       <DependentUpon>Adding.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Graph.cs" />
+    <Compile Include="Viewer\GenealogicalTreeTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Viewer\GenealogicalTreeTable.Designer.cs">
+      <DependentUpon>GenealogicalTreeTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Viewer\MainPageSigned.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +115,9 @@
     </Compile>
     <EmbeddedResource Include="Viewer\Adding.resx">
       <DependentUpon>Adding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Viewer\GenealogicalTreeTable.resx">
+      <DependentUpon>GenealogicalTreeTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Viewer\MainPageSigned.resx">
       <DependentUpon>MainPageSigned.cs</DependentUpon>

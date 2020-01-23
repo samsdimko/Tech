@@ -7,15 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Samsonov_ProjectForTech
 {
     public partial class MainPageSigned : Form
     {
+        Thread t1;
         public MainPageSigned()
         {
             InitializeComponent();
-            listBox1.Items.Add(TableMain.SetList());
+            listBox1.Items.AddRange(TableMain.SetList());
+            t1 = new Thread(time);
+            t1.IsBackground = true;
+            t1.Priority = ThreadPriority.Lowest;
+            t1.Start();
         }
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
@@ -36,20 +42,14 @@ namespace Samsonov_ProjectForTech
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var searchQuery = textBox1.Text;
-
-            int[] find = Dataset.PersonList.Where(x => x.GetFullName().Contains(searchQuery) ||
-                                                       x.GetAddress().Contains(searchQuery) || 
-                                                       x.GetPlaceOfBirth().Contains(searchQuery))
-                                                       .Select(x => x.GetId()).ToArray();
-            if (find == null)
+            if (textBox1.Text == "")
             {
                 MessageBox.Show("No such person");
-                textBox1.Text = "";
             }
             else
             {
-                //TODO Show id list
+                SearchPresenter searchPresenter = new SearchPresenter(textBox1.Text);
+                textBox1.Text = "";
             }
         }
 
@@ -71,33 +71,35 @@ namespace Samsonov_ProjectForTech
                 textBox3.Text = "";
                 textBox4.Text = "";
             }
-            else if (false)//TODO Check for correct names//Search.CheckName(textBox3.Text) == false || Search.CheckName(textBox4.Text) == false)
-            {
-                MessageBox.Show("Incorrect name");
-                textBox3.Text = "";
-                textBox4.Text = "";
-            }
             else
             {
-                var firstPerson = Dataset.GetPersonByName(textBox3.Text);
-                var secondPerson = Dataset.GetPersonByName(textBox4.Text);
-                if (secondPerson == null || firstPerson == null) 
-                {
-                    MessageBox.Show("No such person");
-                    textBox3.Text = "";
-                    textBox4.Text = "";
-                    return;
-                }
-                int firstId = firstPerson.GetId();
-                int secondId = secondPerson.GetId();
-                //textBox2.Text = graph(textBox3.Text, textBox4.Text);
+                //SearchPresenter searchPresenter = new SearchPresenter(textBox3.Text, textBox4.Text);
+                textBox3.Text = "";
+                textBox4.Text = "";
             }
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            string a = listBox1.SelectedItem.ToString();
+            SearchPresenter searchPresenter = new SearchPresenter(listBox1.SelectedItem.ToString());
+        }
+        private void time()
+        {
+            while (true)
+            {
+                toolStripStatusLabel1.Text = DateTime.Now.ToString() + "  Число зарегистрированных: " + Dataset.GetID().ToString();
+                Thread.Sleep(500);
+            }
+        }
+        private void MainPageSigned_FormClosing(Object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void MainPageSigned_Load(object sender, EventArgs e)
+        {
+
+
         }
     }
 }

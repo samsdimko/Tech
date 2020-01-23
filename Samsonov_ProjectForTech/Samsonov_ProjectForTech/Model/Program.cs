@@ -16,6 +16,7 @@ namespace Samsonov_ProjectForTech
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Dataset.RecreateDataset();
             Application.Run(new MainPageUnsigned());
         }
     }

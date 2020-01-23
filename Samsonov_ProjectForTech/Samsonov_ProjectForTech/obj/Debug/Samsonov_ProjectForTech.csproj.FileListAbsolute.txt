@@ -18,7 +18,6 @@ D:\Tech-master\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsono
 D:\Tech-master\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.Properties.Resources.resources
 D:\Tech-master\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.Sign_up.resources
 D:\Tech-master\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.csproj.GenerateResource.cache
-D:\Tech-master\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.Viewer.ShowTreeList.resources
 D:\Tech-master\Samsonov_ProjectForTech\Samsonov_ProjectForTech\bin\Debug\Samsonov_ProjectForTech.exe.config
 D:\Tech-master\Samsonov_ProjectForTech\Samsonov_ProjectForTech\bin\Debug\Samsonov_ProjectForTech.exe
 D:\Tech-master\Samsonov_ProjectForTech\Samsonov_ProjectForTech\bin\Debug\Samsonov_ProjectForTech.pdb
@@ -27,3 +26,5 @@ D:\Tech-master\Samsonov_ProjectForTech\Samsonov_ProjectForTech\bin\Debug\Newtons
 D:\Tech-master\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.csproj.CopyComplete
 D:\Tech-master\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.exe
 D:\Tech-master\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.pdb
+D:\Tech-master\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.GenealogicalTreeTable.resources
+D:\Tech-master\Samsonov_ProjectForTech\Samsonov_ProjectForTech\obj\Debug\Samsonov_ProjectForTech.ShowTreeList.resources

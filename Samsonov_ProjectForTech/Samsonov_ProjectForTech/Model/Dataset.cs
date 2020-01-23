@@ -12,17 +12,29 @@ namespace Samsonov_ProjectForTech
     {
         public static List<Person> PersonList = new List<Person>();
         public static int ID = 0;
-        static Dataset()
+        public static void RecreateDataset()
         {
-            JsonSerializer a = new JsonSerializer();
-            PersonList = (List<Person>)a.Deserialize(File.OpenText("Dataset.json"), typeof(List<Person>));
+            using (StreamReader file = File.OpenText("Dataset.json"))
+            {
+                JsonSerializer a = new JsonSerializer();
+                PersonList = (List<Person>)a.Deserialize(file, typeof(List<Person>));
+                if (PersonList != null)
+                {
+                    ID = PersonList.Count;
+                }
+            }
         }
         public static void DatasetAdd(Person person)
         {
-            PersonList.Add(person);
-            JsonSerializer b = new JsonSerializer();
-            b.Serialize(File.CreateText("Dataset.json"), PersonList);
-            ID++;
+            using (StreamWriter file = File.CreateText("Dataset.json"))
+            {
+                PersonList.Add(person);
+                JsonSerializer b = new JsonSerializer();
+                b.Serialize(file, PersonList);
+                ID++;
+                file.Close();
+            }
+
         }
         public static List<Person> GetPersonList()
         {

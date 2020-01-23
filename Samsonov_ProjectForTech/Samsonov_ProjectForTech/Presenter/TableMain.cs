@@ -8,22 +8,18 @@ namespace Samsonov_ProjectForTech
 {
     class TableMain
     {
-        static List<string> Names = new List<string>();
+        static string[] Names = new string[Dataset.GetPersonList().Count];
         private static void GetList()
         {
             for (int i = 0; i < Dataset.GetPersonList().Count; i++)
             {
-                Names.Add(Dataset.GetPersonList()[i].GetFullName());
+                Names[i] = Dataset.GetPersonList()[i].GetFullName();
             }
         }
-        public static List<string> SetList()
-        {
-            return Names;
-        }
-        TableMain()
+        public static string[] SetList()
         {
             GetList();
-            SetList();
+            return Names;
         }
     }
 }

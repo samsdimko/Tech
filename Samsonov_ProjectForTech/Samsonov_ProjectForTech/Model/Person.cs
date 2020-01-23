@@ -59,11 +59,8 @@ namespace Samsonov_ProjectForTech
         [JsonProperty]
         private int idM = -1;
         [JsonProperty]
-        private List<int> idch = new List<int>();       
-       
+        private List<int> idch = new List<int>();
 
-        
-        [JsonConstructor]
         public Person(string Surname,
             string Maiden_Name,
             string Name,
@@ -87,14 +84,20 @@ namespace Samsonov_ProjectForTech
         {
             this.Surname = Surname;
             if (Maiden_Name != "-")
+            {
                 this.Maiden_Name = Maiden_Name;
+            }
             this.Name = Name;
             this.Patronymic = Patronymic;
             this.Birthday = Birthday;
             if (Birt == "yes")
+            {
                 this.Birth = true;
+            }
             else
+            {
                 this.Birth = false;
+            }
             this.Place_of_birth = Place_of_birth;
             this.Date_of_death = Date_of_death;
             if (Death == "yes")
@@ -102,7 +105,9 @@ namespace Samsonov_ProjectForTech
                 this.Death = true;
             }
             else
+            {
                 this.Death = false;
+            }
             this.Place_of_death = Place_of_death;
             this.Nationality = Nationality;
             this.Sosial = Sosial;
@@ -114,18 +119,77 @@ namespace Samsonov_ProjectForTech
             this.Curriculum = Curriculum;
             this.Mother = Mother;
             this.Father = Father;
-
             var m = Dataset.PersonList.FirstOrDefault(x => x.GetFullName() == Mother);
             this.idM = m == null ? -1 : m.GetId();
-            var f = Dataset.PersonList.FirstOrDefault(x => x.GetFullName() == Father);         
+            var f = Dataset.PersonList.FirstOrDefault(x => x.GetFullName() == Father);
             this.idF = f == null ? -1 : f.GetId();
-
             id = Dataset.GetID();
+            if (idF != -1)
+            {
+                Dataset.GetPersonList()[idF].idch.Add(this.id);
+            }
+            if (idM != -1)
+            {
+                Dataset.GetPersonList()[idM].idch.Add(this.id);
+            }
+        }
+
+
+        [JsonConstructor]
+        public Person(int id,
+            string Surname,
+            string Maiden_Name,
+            string Name,
+            string Patronymic,
+            string Birthday,
+            bool Birth,
+            string Place_of_birth,
+            string Date_of_death,
+            bool Death,
+            string Place_of_death,
+            string Nationality,
+            string Sosial,
+            string Educations,
+            string Proffesions,
+            string Address,
+            string From_ty,
+            string Source,
+            string Curriculum,
+            string Mother,
+            string Father, 
+            int idF,
+            int idM,
+            List<int>idch)
+        {
+            this.id = id;
+            this.Surname = Surname;            
+            this.Maiden_Name = Maiden_Name;
+            this.Name = Name;
+            this.Patronymic = Patronymic;
+            this.Birthday = Birthday;
+            this.Birth = Birth;
+            this.Place_of_birth = Place_of_birth;
+            this.Date_of_death = Date_of_death;
+            this.Death = Death;
+            this.Place_of_death = Place_of_death;
+            this.Nationality = Nationality;
+            this.Sosial = Sosial;
+            this.Educations = Educations;
+            this.Proffesions = Proffesions;
+            this.Address = Address;
+            this.From_ty = From_ty;
+            this.Source = Source;
+            this.Curriculum = Curriculum;
+            this.Mother = Mother;
+            this.Father = Father;
+            this.idF = idF;
+            this.idM = idM;
+            this.idch = idch;
         }
 
         public string GetFullName()
         {
-            return this.Surname + " " + this.Name + " " + this.Patronymic;
+            return Surname + " " + Name + " " + Patronymic;            
         }
         public bool IsNameValid(string Name, string Surname, string Patronymic)
         {

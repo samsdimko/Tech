@@ -7,15 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Samsonov_ProjectForTech
 {
     public partial class MainPageUnsigned : Form
     {
+        Thread t1;
         public MainPageUnsigned()
         {
-            InitializeComponent();
-            listBox1.Items.Add(TableMain.SetList());
+            InitializeComponent();            
+            listBox1.Items.AddRange(TableMain.SetList());
+            t1 = new Thread(time);
+            t1.IsBackground = true; 
+            t1.Priority = ThreadPriority.Lowest;
+            t1.Start();
+
         }
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
@@ -30,8 +37,8 @@ namespace Samsonov_ProjectForTech
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Sign_in sign_in = new Sign_in();
-            sign_in.Show();
+            MainPageSigned mainPageSigned = new MainPageSigned();
+            mainPageSigned.Show();
             this.Hide();
         }
 
@@ -41,8 +48,8 @@ namespace Samsonov_ProjectForTech
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {            
-            
+        {
+            SearchPresenter searchPresenter = new SearchPresenter(listBox1.SelectedItem.ToString());
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -52,20 +59,14 @@ namespace Samsonov_ProjectForTech
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var searchQuery = textBox1.Text;
-
-            int[] find = Dataset.PersonList.Where(x => x.GetFullName().Contains(searchQuery) ||
-                                                       x.GetAddress().Contains(searchQuery) ||
-                                                       x.GetPlaceOfBirth().Contains(searchQuery))
-                                                       .Select(x => x.GetId()).ToArray();
-            if (find == null)
+            if (textBox1.Text == "")
             {
                 MessageBox.Show("No such person");
-                textBox1.Text = "";
             }
             else
             {
-                RunAndStrartTree runAndStrartTree = new RunAndStrartTree(find[0]);
+                SearchPresenter searchPresenter = new SearchPresenter(textBox1.Text);
+                textBox1.Text = "";
             }
         }
 
@@ -87,27 +88,13 @@ namespace Samsonov_ProjectForTech
                 textBox3.Text = "";
                 textBox4.Text = "";
             }
-            else if (false)//TODO Check for correct names//Search.CheckName(textBox3.Text) == false || Search.CheckName(textBox4.Text) == false)
+            else 
             {
-                MessageBox.Show("Incorrect name");
+                string a = textBox2.Text;
+                SearchPresenter searchPresenter = new SearchPresenter(textBox3.Text, textBox4.Text, ref a);
                 textBox3.Text = "";
                 textBox4.Text = "";
-            }
-            else
-            {
-                var firstPerson = Dataset.GetPersonByName(textBox3.Text);
-                var secondPerson = Dataset.GetPersonByName(textBox4.Text);
-                if (secondPerson == null || firstPerson == null)
-                {
-                    MessageBox.Show("No such person");
-                    textBox3.Text = "";
-                    textBox4.Text = "";
-                    return;
-                }
-                int firstId = firstPerson.GetId();
-                int secondId = secondPerson.GetId();
-
-                //TODO Stuff with 2 persons
+                textBox2.Text = a;
             }
             
         }
@@ -140,6 +127,23 @@ namespace Samsonov_ProjectForTech
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+            
+        }
+        private void time()
+        {
+            while (true)
+            {
+                toolStripStatusLabel1.Text = DateTime.Now.ToString() + "  Число зарегистрированных: " + Dataset.GetID().ToString();                
+            }
         }
     }
 }

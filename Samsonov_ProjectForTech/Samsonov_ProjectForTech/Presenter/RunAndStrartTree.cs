@@ -6,20 +6,26 @@ using System.Threading.Tasks;
 
 namespace Samsonov_ProjectForTech
 {
-    class RunAndStrartTree
+    public class RunAndStrartTree
     {
+        GenealogicalTree genealogicalTree;
+        GenealogicalTreeTable genealogicalTreeTable;
         public RunAndStrartTree(int id)
         {
             Graph graph = new Graph(id);
             Tree tree = new Tree(graph);
-            GenealogicalTree genealogicalTree = new GenealogicalTree(tree);
+            genealogicalTree = new GenealogicalTree(tree, graph, this);
             genealogicalTree.Show();
         }
-        public static void Run(int id)
+        public void StartTable(Graph graph)
         {
-            Graph graph = new Graph(id);
-            Tree tree = new Tree(graph);
-            GenealogicalTree genealogicalTree = new GenealogicalTree(tree);
+            genealogicalTree.Hide();
+            genealogicalTreeTable = new GenealogicalTreeTable(new Table(graph).GetTable(), this);
+            genealogicalTreeTable.Show();
+        }
+        public void StartTree()
+        {
+            genealogicalTreeTable.Close();
             genealogicalTree.Show();
         }
     }
