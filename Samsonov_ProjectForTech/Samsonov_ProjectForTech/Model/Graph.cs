@@ -157,11 +157,21 @@ namespace Samsonov_ProjectForTech
             {
                 for (int j = i; j < gr[0].Count; j++)
                 {
+                    if(Dataset.GetPersonList()[gr[0][i]].GetChildList().Count != 0)
+                    {
+                        if(Dataset.GetPersonList()[gr[0][i]].GetChildList().IndexOf(gr[0][j]) != -1)
+                        {
+                            Floid[i, j] = Floid[j, i] = 1;
+                        }
+                    }
                     if(Dataset.GetPersonList()[gr[0][i]].GetFatherID() == gr[0][j] ||
-                       Dataset.GetPersonList()[gr[0][i]].GetMotherID() == gr[0][j] ||
-                       Dataset.GetPersonList()[gr[0][i]].GetChildList().IndexOf(gr[0][j]) != -1)
+                       Dataset.GetPersonList()[gr[0][i]].GetMotherID() == gr[0][j])
                     {
                         Floid[i, j] = Floid[j, i] = 1;
+                    }
+                    if(i == j)
+                    {
+                        Floid[i, i] = 1;
                     }
                 }
             }
@@ -175,15 +185,21 @@ namespace Samsonov_ProjectForTech
                     }
                 }
             }
-            for (int i = 0; i < gr[0].Count; i++)
+            for (int t = 0; t < gr[0].Count; t++)
             {
-                for (int j = 0; j < gr[0].Count; j++)
+                for (int i = 0; i < gr[0].Count; i++)
                 {
-                    for (int k = 0; k < gr[0].Count; k++)
+                    for (int j = 0; j < gr[0].Count; j++)
                     {
-                        if (Floid[i, j] > Floid[i, k] + Floid[k, j]) 
+                        for (int k = 0; k < gr[0].Count; k++)
                         {
-                            Floid[i, j] = Floid[i, k] + Floid[k, j];
+                            if (k != i && k != j)
+                            {
+                                if (Floid[i, j] > Floid[i, k] + Floid[k, j])
+                                {
+                                    Floid[i, j] = Floid[i, k] + Floid[k, j];
+                                }
+                            }
                         }
                     }
                 }
@@ -192,16 +208,9 @@ namespace Samsonov_ProjectForTech
         public int[] Relation(int me, int it)
         {
             int[] result = new int[2];
-            int cas = gr[1][me] - gr[1][it];
+            int cas = Math.Abs(gr[1][me] - gr[1][it]);
             result[0] = cas;
-            if (cas > 0)
-            {
-                result[1] = Floid[me, it] - cas;
-            }
-            else
-            {
-                result[1] = Floid[me, it] + cas;
-            }
+            result[1] = Floid[me, it] - cas;            
             return result;
         }
         public List<List<int>> GetList()

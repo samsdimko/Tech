@@ -73,9 +73,11 @@ namespace Samsonov_ProjectForTech
             }
             else
             {
-                //SearchPresenter searchPresenter = new SearchPresenter(textBox3.Text, textBox4.Text);
+                string a = textBox2.Text;
+                SearchPresenter searchPresenter = new SearchPresenter(textBox3.Text, textBox4.Text, ref a);
                 textBox3.Text = "";
                 textBox4.Text = "";
+                textBox2.Text = a;
             }
         }
 

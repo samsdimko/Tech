@@ -32,7 +32,7 @@ namespace Samsonov_ProjectForTech
         }
         private string Search()
         {
-            if (graph[1][me] == graph[1][it] && Dataset.GetPersonList()[graph[0][me]].GetChildList() == Dataset.GetPersonList()[graph[0][it]].GetChildList() && 
+            if (graph[1][me] == graph[1][it] && Dataset.GetPersonList()[graph[0][me]].GetChildList() == Dataset.GetPersonList()[graph[0][it]].GetChildList() &&
                 Dataset.GetPersonList()[graph[0][me]].GetChildList().Count != 0)
             {
                 return "Супруги";
@@ -58,20 +58,17 @@ namespace Samsonov_ProjectForTech
                 int[] t = GRAPH.Relation(me, it);
                 if (t[0] == 0)
                 {
-                    return Dataset.GetPersonList()[graph[0][me]].GetFullName() + " и " + Dataset.GetPersonList()[graph[0][it]].GetFullName() +
+                    return Dataset.GetPersonList()[me].GetFullName() + " и " + Dataset.GetPersonList()[it].GetFullName() +
                         " являются родственниками одного поколения со степенью родства " + t[1].ToString();
                 }
                 if (t[1] == 0)
                 {
-                    return Dataset.GetPersonList()[graph[0][me]].GetFullName() + " и " + Dataset.GetPersonList()[graph[0][it]].GetFullName() +
-                        " являются родственниками по прямой нисходящей линии с разницей в " + t[1].ToString() + "поколений";
+                    return Dataset.GetPersonList()[me].GetFullName() + " и " + Dataset.GetPersonList()[it].GetFullName() +
+                        " являются родственниками по прямой нисходящей линии с разницей в " + t[1].ToString() + " поколений";
                 }
-                if (graph[1][me] > graph[1][it])
-                {
-                    return Dataset.GetPersonList()[graph[0][me]].GetFullName() + " и " + Dataset.GetPersonList()[graph[0][it]].GetFullName() +
-                        " являются родственниками по непрямой нисходящей линии с разницей в " + t[1].ToString() + "поколений";
-                }
-                return "";
+                return Dataset.GetPersonList()[me].GetFullName() + " и " + Dataset.GetPersonList()[it].GetFullName() +
+                        " являются родственниками по непрямой нисходящей линии с разницей в " + t[0].ToString() + " поколений и со степенью родства " + t[1].ToString();
+
             }
         }
     }

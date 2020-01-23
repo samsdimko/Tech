@@ -61,7 +61,7 @@ namespace Samsonov_ProjectForTech
                     {
                         if (find1.Length == 1)
                         {
-                            int id1 = find[0];
+                            int id1 = find1[0];
                             Graph graph = new Graph(id);
                             RelationShip relationShip = new RelationShip(graph, id, id1);
                             text = relationShip.MainSearch();
@@ -69,7 +69,7 @@ namespace Samsonov_ProjectForTech
                         else
                         {
                             var contId1 = new ContainerId();
-                            ShowTreeList showTreeList1 = new ShowTreeList(find, contId1);
+                            ShowTreeList showTreeList1 = new ShowTreeList(find1, contId1);
                             showTreeList1.ShowDialog();
                             Graph graph = new Graph(id);
                             RelationShip relationShip = new RelationShip(graph, id, contId1.ID);
@@ -100,7 +100,7 @@ namespace Samsonov_ProjectForTech
                         else
                         {
                             var contId1 = new ContainerId();
-                            ShowTreeList showTreeList1 = new ShowTreeList(find, contId);
+                            ShowTreeList showTreeList1 = new ShowTreeList(find1, contId);
                             showTreeList1.ShowDialog();
                             Graph graph = new Graph(contId.ID);
                             RelationShip relationShip = new RelationShip(graph, contId.ID, contId1.ID);
